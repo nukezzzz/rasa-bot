@@ -1,0 +1,27 @@
+docker run -v F:\ShoutOUT\rasa-test:/app rasa/rasa:2.2.8 init --no-prompt 
+docker build . -t rasa/rasa-sdk:2.2.0-custom
+docker run rasa/rasa-sdk:2.2.0-custom
+docker network create rasabot
+docker run --network=rasabot -it --name core-server -v F:\ShoutOUT\rasa-test:/app rasa/rasa:2.2.8 shell
+docker run --user 1000 --name action-server --network=rasabot rasa/rasa-sdk:2.2.0-custom 
+
+If we chage the model while core is runing will it work 
+How to run the rasa runs 
+
+lol ----
+dig ----
+3dr
+
+S3 data charge  : 0.025 per GB 
+EC2 data charge : incoming freeq
+AWS codedeploy  : 0.02 for every run 
+EC2 cost for codedeploy :  (a1.large : 2vCPU 4 GB ram  )  0.051 per hr
+
+10 deployment cycles with 1 hr training job : 
+
+code deploy : 0.02 * 10                = 0.2
+s3 charge   : 0.025 * 1 Gb model * 10  = 0.25
+Ec2 cost:     0.051 * 10               = 0.51
+Total                                  = $0.96
+
+
